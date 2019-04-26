@@ -6,7 +6,9 @@ class EventsController < ApplicationController
 
 
     def index
-        @events = Event.all
+      @events = Event.all
+      @previous_events = Event.previous
+      @upcoming_events = Event.upcoming
     end
 
     def new
@@ -30,7 +32,7 @@ class EventsController < ApplicationController
           @user_options = User.all.map { |u| [ u.name, u.id ] if @event.can_invite?(u) && u != current_user }
           @user_options.compact!
         end
-          
+
     end
 
     private

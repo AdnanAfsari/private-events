@@ -2,10 +2,10 @@
 <aside class="col-md-12">
 <section class="user_info">
 
-<h1>All Events (<%= @events.count %>)<span><%= link_to "Create new", new_event_path %></span></h1>
-
+<h3>Upcoming Events (<%= @upcoming_events.count %>)<span><%= link_to "Create new", new_event_path %></span></h3>
+<% if @upcoming_events.any? %>
   <div class="events">
-      <% @events.each do |event| %>
+      <% @upcoming_events.each do |event| %>
       <div class="event">
           <span class="name"><%= link_to event.name, event_path(event)%></span>
           <span><%= event.creator.name %></span>
@@ -20,6 +20,24 @@
       </div>
       <% end %>
   </div>
+<% end %>
+
+<h3>Previous Events (<%= @previous_events.count %>)</h3>
+<% if @previous_events.any? %>
+  <div class="events">
+      <% @prevous_events.each do |event| %>
+      <div class="event">
+        <li><%= link_to previous_event.name, previous_event %>, date: <%= previous_event.dateofevent %></li>
+      </div>
+      <% end %>
+  </div>
+<% end %>
+
+
+
+
+
+
 
   </section>
   </aside>
