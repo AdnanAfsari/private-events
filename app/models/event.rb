@@ -8,8 +8,8 @@ class Event < ApplicationRecord
      has_many :invitations
      has_many :invited_users, through: :invitations, source: :receiver
 
-    scope :upcoming, -> { where("date > ?", Time.now) }
-    scope :previous, -> { where("date < ?", Time.now) }
+    scope :upcoming, -> { where("dateofevent > ?", Time.now) }
+    scope :previous, -> { where("dateofevent < ?", Time.now) }
 
 
 
