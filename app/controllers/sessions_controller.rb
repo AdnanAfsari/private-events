@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-
-  include ApplicationHelper
+    include ApplicationHelper
 
     def new
     end
@@ -21,4 +20,5 @@ class SessionsController < ApplicationController
     def destroy
         log_out if logged_in?
     end
+
 end

@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_many :events, foreign_key: "creator_id"
 
+  has_many :eventusers, foreign_key: "attendee_id"
+  has_many :attended_events, through: :eventusers, source: :attended_event
+
 
 
   before_save { self.email = email.downcase }

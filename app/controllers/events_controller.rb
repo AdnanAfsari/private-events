@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
-
-  include SessionsHelper
+    include SessionsHelper
 
     before_action :logged_in, only: [:new, :create]
+
 
 
     def index
@@ -41,4 +41,6 @@ class EventsController < ApplicationController
               redirect_to login_path
             end
         end
+
+
 end
