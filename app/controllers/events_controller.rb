@@ -25,8 +25,12 @@ class EventsController < ApplicationController
 
     def show
         @event = Event.find_by(id: params[:id])
-        # @event = Event.find(params[:id])
-        # @creator = @event.creator
+        unless current_user.nil?
+          @new_invitation = @event.invitations.build(sender_id: current_user.id)
+          @user_options = User.all.map { |u| [ u.name, u.id ] if @event.can_invite?(u) && u != current_user }
+          @user_options.compact!
+        end
+          
     end
 
     private

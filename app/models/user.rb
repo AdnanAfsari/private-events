@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :eventusers, foreign_key: "attendee_id"
   has_many :attended_events, through: :eventusers, source: :attended_event
 
+  has_many :sent_invitations, class_name: "Invitation", foreign_key: :sender_id
+  has_many :received_invitations, class_name: "Invitation", foreign_key: :receiver_id
+
 
 
   before_save { self.email = email.downcase }
@@ -14,4 +17,13 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+
+  def upcoming_events
+    self.attended_events.upcoming
+  end
+
+  def previous_events
+    self.attended_events.previous
+  end
+  
 end

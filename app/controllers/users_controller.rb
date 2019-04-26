@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     include SessionsHelper
 
-    # before_action :logged_in , only: [:show]
+    before_action :logged_in , only: [:show]
     # before_action :correct_user , only: [:show]
 
     def new

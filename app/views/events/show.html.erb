@@ -8,6 +8,38 @@
 
       <h2>Event creator: <%= @event.creator.name %></h2>
 
+
+      <h3>Event attendees:</h3>
+      <% if @event.attendees.any? %>
+        <ol>
+          <% @event.attendees.each do |attendee| %>
+            <li><%= attendee.name %></li>
+          <% end %>
+        </ol>
+      <% end %>
+
+      <h3>Invite somebody</h3>
+      <% unless current_user.nil? %>
+        <% unless @user_options.nil? %>
+          <%= form_for(@new_invitation) do |f| %>
+            <%= f.hidden_field :event_id %>
+            <%= f.hidden_field :sender_id%>
+            <%= f.select :receiver_id, @user_options %>
+            <%= f.submit "Invite"%>
+          <% end %>
+        <% end %>
+      <% end %>
+
+
+      <h3>Invited Users </h3>
+      <% if @event.invited_users %>
+        <ol>
+          <% @event.invited_users.each do |user| %>
+            <li><%= user.name %> </li>
+          <% end %>
+        </ol>
+      <% end %>
+
     </section>
   </aside>
 </div>
