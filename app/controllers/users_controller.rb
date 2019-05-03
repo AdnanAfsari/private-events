@@ -22,7 +22,13 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         @events =  @user.events
+        # @upcoming_events = @user.upcoming_events
+        # @prev_events = @user.previous_events
+        @previous_events = Event.previous
+        @upcoming_events = Event.upcoming
     end
+
+
 
 
     private
@@ -44,5 +50,11 @@ class UsersController < ApplicationController
                 redirect_to root_path
             end
         end
+
+
+
+
+
+
 
 end
