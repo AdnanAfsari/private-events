@@ -3,33 +3,18 @@
 <section class="user_info">
 
 <h3>Upcoming Events (<%= @upcoming_events.count %>)<span><%= link_to "Create new", new_event_path %></span></h3>
-<% if @upcoming_events.any? %>
-  <div class="events">
-      <% @upcoming_events.each do |event| %>
-      <div class="event">
-          <span class="name"><%= link_to event.name, event_path(event)%></span>
-          <span><%= event.creator.name %></span>
-          <span class="description"><%= event.description %></span>
-          <span class="dateofevent">Date: <%= event.dateofevent %></span>
-          <span class="location">Location: <%= event.location %></span>
+<%= render @upcoming_events %>
 
 
-          <span class="timestamp">
-              Posted <%= time_ago_in_words(event.created_at) %> ago.
-          </span>
-      </div>
-      <% end %>
-  </div>
-<% end %>
+
+
+
+
+
+
 
 <h3>Previous Events (<%= @previous_events.count %>)</h3>
-<% if @previous_events.any? %>
-<div class="events">
-    <% @previous_events.each do |previous_event| %>
-      <div class="event"><%= link_to previous_event.name, previous_event %>, date: <%= previous_event.dateofevent %></div>
-    <% end %>
-</div>
-<% end %>
+<%= render @previous_events %>
 
 
 
