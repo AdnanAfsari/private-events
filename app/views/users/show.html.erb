@@ -5,29 +5,17 @@
         <%= @user.name %>
       </h1>
 
-
-
-
       <h3>My events (<%= @events.count %>)</h3>
+      <p>All events I have created both upcoming and past</p>
       <%= render @events %>
 
-
-
       <h3>Upcoming events (<%= @user.upcoming_events.count %>)</h3>
+      <p>Invitation(s) I have accepted.</p>
       <%= render @user.upcoming_events %>
 
-
-
-
-
-
       <h3>Previously attended events (<%= @user.previous_events.count %>)</h3>
+      <p>Event(s) that I was invited to</p>
       <%= render @user.previous_events %>
-
-
-
-
-
 
       <% if @user.received_invitations.not_accepted.any? %>
         <h3>You are invited:</h3>
