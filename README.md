@@ -1,24 +1,34 @@
-# README
+# Private Events
+An event listing application where users can post events and invite other users to the event.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Author
+James Okunlade
 
-Things you may want to cover:
+Adnan Afsari
 
-* Ruby version
+## Technologies
+Ruby on Rails
 
-* System dependencies
+Bootstrap
 
-* Configuration
+## Requirements
 
-* Database creation
+Browser
 
-* Database initialization
+Rails `5.2.2`
 
-* How to run the test suite
+Ruby `2.5.3`
 
-* Services (job queues, cache servers, search engines, etc.)
+## Installation
+> Open your git bash and **cd** to the location you'd like to put your files the run the command below.
 
-* Deployment instructions
+`git clone https://github.com/AdnanAfsari/private-events`
 
-* ...
+> **cd** to into the project folder and do `bundle install` to install all gems
+
+> Now do `rails db:migrate` to generate the database migrations
+
+
+## Start server
+
+> Do `rails server` to start the server and open `localhost:3000` on your browser 
