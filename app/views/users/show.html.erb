@@ -5,52 +5,17 @@
         <%= @user.name %>
       </h1>
 
-      <% if @user.events.any? %>
-        <h3>My Events (<%= @user.events.count %>)</h3>
-        <div class="events">
-            <% @user.events.each do |event| %>
-            <div class="event">
-                <span class="name"><%= link_to event.name, event_path(event) %></span>
-                <span class="description"><%= event.description %></span>
-                <span class="dateofevent">Date: <%= event.dateofevent %></span>
-                <span class="location">Location: <%= event.location %></span>
-                <span class="timestamp">
-                    Posted <%= time_ago_in_words(event.created_at) %> ago.
-                </span>
-            </div>
-            <% end %>
-        </div>
-      <% end %>
+      <h3>My events (<%= @events.count %>)</h3>
+      <p>All events I have created both upcoming and past</p>
+      <%= render @events %>
 
+      <h3>Upcoming events (<%= @user.upcoming_events.count %>)</h3>
+      <p>Invitation(s) I have accepted.</p>
+      <%= render @user.upcoming_events %>
 
-      <% if @user.attended_events.any? %>
-        <!-- <h3>Attended events</h3> -->
-        <% if @user.upcoming_events.any? %>
-          <h3> Upcoming events </h3>
-          <div class="events">
-            <% @user.upcoming_events.each do |upcoming_event| %>
-            <div class="event">
-              <span class="name"><%= link_to upcoming_event.name, event_path(upcoming_event) %></span>
-              <span class="description"><%= upcoming_event.description %></span>
-              <span class="dateofevent">Date: <%= upcoming_event.dateofevent %></span>
-              <span class="location">Location: <%= upcoming_event.location %></span>
-              <span class="timestamp">
-                  Updated <%= time_ago_in_words(upcoming_event.updated_at) %> ago.
-              </span>
-            </div>
-            <% end %>
-          </div>
-        <% end %>
-        <% if @user.previous_events.any? %>
-          <h4> Previously attended events </h4>
-          <ul>
-            <% @user.previous_events.each do |previous_event| %>
-              <li> <%= previous_event.name %>, <%= previous_event.dateofevent %></li>
-            <% end %>
-          </ul>
-        <% end %>
-      <% end %>
-
+      <h3>Previously attended events (<%= @user.previous_events.count %>)</h3>
+      <p>Event(s) that I was invited to</p>
+      <%= render @user.previous_events %>
 
       <% if @user.received_invitations.not_accepted.any? %>
         <h3>You are invited:</h3>

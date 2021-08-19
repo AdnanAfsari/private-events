@@ -26,15 +26,7 @@
 <% end %>
 
 <h3>Previous Events (<%= @previous_events.count %>)</h3>
-<% if @previous_events.any? %>
-  <div class="events">
-      <% @prevous_events.each do |event| %>
-      <div class="event">
-        <li><%= link_to previous_event.name, previous_event %>, date: <%= previous_event.dateofevent %></li>
-      </div>
-      <% end %>
-  </div>
-<% end %>
+<%= render @previous_events %>
 
 
 
