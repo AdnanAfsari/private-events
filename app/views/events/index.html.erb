@@ -6,9 +6,10 @@
 <h3>Upcoming Events (<%= @upcoming_events.count %>)</h3>
 <% if @upcoming_events.any? %>
   <div class="events">
-      <% @upcoming_events.each do |event| %>
-      <div class="event">
-          <span class="name"><%= link_to event.name, event_path(event)%></span>
+    <% @upcoming_events.each do |event| %>
+      <%= link_to  event_path(event) do %>
+        <div class="event">
+          <span class="name"><%=  event.name%></span>
           <span><%= event.creator.name %></span>
           <span class="description"><%= event.description %></span>
           <span class="dateofevent">Date: <%= event.dateofevent %></span>
@@ -18,8 +19,9 @@
           <span class="timestamp">
               Posted <%= time_ago_in_words(event.created_at) %> ago.
           </span>
-      </div>
+        </div>
       <% end %>
+    <% end %>
   </div>
 <% end %>
 
