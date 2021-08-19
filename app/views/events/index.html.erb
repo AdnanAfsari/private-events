@@ -2,7 +2,8 @@
 <aside class="col-md-12">
 <section class="user_info">
 
-<h3>Upcoming Events (<%= @upcoming_events.count %>)<span><%= link_to "Create new", new_event_path %></span></h3>
+<h3><%= link_to "Create new", new_event_path %></h3>
+<h3>Upcoming Events (<%= @upcoming_events.count %>)</h3>
 <% if @upcoming_events.any? %>
   <div class="events">
       <% @upcoming_events.each do |event| %>
