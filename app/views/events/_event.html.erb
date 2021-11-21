@@ -1,6 +1,7 @@
 <div class="events">
   <div class="event">
-    <span class="name"><%= link_to event.name, event_path(event) %></span>
+  <%= link_to event_path(event) do %>
+    <span class="name"><%= event.name %></span>
     <span class="description"><%= event.description %></span>
     <span class="dateofevent">Date: <%= event.dateofevent %></span>
     <span class="location">Location: <%= event.location %></span>
@@ -8,5 +9,5 @@
         Posted <%= time_ago_in_words(event.created_at) %> ago.
     </span>
   </div>
-
+  <% end %>
 </div>
