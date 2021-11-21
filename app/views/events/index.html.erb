@@ -10,7 +10,7 @@
       <%= link_to  event_path(event) do %>
         <div class="event">
           <span class="name"><%=  event.name%></span>
-          <span><%= event.creator.name %></span>
+          <span><%= event.user.name %></span>
           <span class="description"><%= event.description %></span>
           <span class="dateofevent">Date: <%= event.dateofevent %></span>
           <span class="location">Location: <%= event.location %></span>
