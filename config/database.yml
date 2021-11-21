@@ -23,7 +23,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: facelook-test
+  database: private-events
   pool: 5
   username:
   password:
