@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2019_04_26_134548) do
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "creator_id"
-    t.index ["creator_id"], name: "index_events_on_creator_id"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "eventusers", force: :cascade do |t|
